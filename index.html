@@ -6,8 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <style>
+        *{
+            color: #FFFBF1;
+        }
+        main{
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+        }
+        header{
+            margin-left: 60px;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            margin-bottom: -10px;
+        }
+        header h1{
+            color: black;
+            position: relative;
+            top: 70px;
+            right: 100px;
+       
+        }
+        header img{
+            max-width: 30%;
+        }
+        header p{
+            color: black;
+           
+        }
+        #kurve{
+            position: relative;
+            top: 70px;
+            left: 70px;
+        }
+        nav{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            place-content: center;
+        }
+        img{
+            max-width: 100%;
+        }
+
+        section{
+            margin: 6rem;
+            gap: 8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <img src="NØ_logo.svg" alt="">
+        <h1>Nørrebro Øl</h1>
+        <nav>
+            <div>
+                <a href="index.html"> <p>Forside</p></a>
+            </div>
+
+            <div><a href="overview.html"><p>ØL</p></a>
+            </div>
+
+        </nav>
+        <img src="kurve.svg" alt="" id="kurve">
+    </header>
+
+    <main>
+        <section id="section1">
+            <img src="flasker/gruppebillede_.png" alt="">
+            <img src="flasker/gruppebillede_1 .png" alt="">
+            <img src="flasker/gruppebillede_2.png" alt="">
+        </section>
+        <section id="section2">
+            <img src="" alt="">
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
 </body>
 </html>
