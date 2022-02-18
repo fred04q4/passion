@@ -31,5 +31,31 @@
         </template>
       </section>
     </main>
+
+    <script>
+      //variabler til at sætte ting ind i senere
+
+      //variabler til at hente json
+      const fil = "https://tema7-6f2c.restdb.io/rest/norrebro";
+      const key = "61fcf7e53f215f310a37be5d";
+      const options = { headers: { "x-apikey": key } };
+      let flasker;
+
+      //asynkron funktion der henter json
+      async function hentData() {
+        const resultat = await fetch(fil, options);
+        flasker = await resultat.json();
+        vis();
+      }
+
+      //function vis() {
+      //console.log(flasker);
+      // flasker.forEach((flaske)=>{
+      // const klon=template.cloneNode(true).content;
+      //}
+      //}
+
+      hentData(fil);
+    </script>
   </body>
 </html>
