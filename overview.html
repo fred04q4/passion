@@ -8,6 +8,9 @@
     <title>Document</title>
   </head>
   <style>
+    img {
+      max-width: 100%;
+    }
     section {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -16,6 +19,13 @@
   </style>
   <body>
     <main>
+      <div class="knapper">
+        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="Lager">Pilsner</button>
+        <button data-kategori="IPA">IPA</button>
+        <button data-kategori="Porter">Porter</button>
+      </div>
+      <h5>Viser nu: Alle</h5>
       <section>
         <template>
           <article>
@@ -30,12 +40,34 @@
 
     <script>
       //variabler til at sætte ting ind i senere
-
+      const container = document.querySelector("section");
+      const template = document.querySelector("template");
+      const viserNu = document.querySelector("h5");
+      //variabler til filtrering
+      let filter = "alle";
+      const filterKnapper = document.querySelectorAll(".knapper button");
       //variabler til at hente json
       const fil = "https://tema7-6f2c.restdb.io/rest/norrebro";
       const key = "61fcf7e53f215f310a37be5d";
       const options = { headers: { "x-apikey": key } };
       let flasker;
+
+      //eventlistener på knapperne
+      filterKnapper.forEach((knap) =>
+        knap.addEventListener("click", filtrerFlasker)
+      );
+
+      //funktionen der filtrerer
+      function filtrerFlasker() {
+        console.log("er der klikket?");
+        filter = this.dataset.kategori;
+        //kald denne funktion igen, for at vise det der nu er valgt
+        vis();
+        //dennes tekst, skal blive til this'(altså den knap der er trykket på's) textContent.
+        viserNu.textContent = `Viser nu:  ${this.textContent}`;
+        document.querySelector(".valgt").classList.remove("valgt");
+        this.classList.add("valgt");
+      }
 
       //asynkron funktion der henter json
       async function hentData() {
@@ -44,12 +76,27 @@
         vis();
       }
 
-      //function vis() {
-      //console.log(flasker);
-      // flasker.forEach((flaske)=>{
-      // const klon=template.cloneNode(true).content;
-      //}
-      //}
+      function vis() {
+        console.log(flasker);
+        //start med at tømme listen, for at kunne fylde dne på ny
+        container.textContent = "";
+        flasker.forEach((flaske) => {
+          if (filter == flaske.type || filter == "alle") {
+            const klon = template.cloneNode(true).content;
+            klon.querySelector("img").src =
+              "flasker/" + flaske.billednavn + ".jpg";
+            klon.querySelector("h3").textContent = flaske.navn;
+            klon.querySelector("#brand").textContent = `Fra  ${flaske.brand}`;
+            klon.querySelector("#pris").textContent = `${flaske.pris} KR.`;
+
+            klon.querySelector("article").addEventListener("click", () => {
+              location.href = `singleview.html?id=${flaske.id}`;
+            });
+
+            container.appendChild(klon);
+          }
+        });
+      }
 
       hentData(fil);
     </script>
