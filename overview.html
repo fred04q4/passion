@@ -23,6 +23,8 @@
 
     <script>
       //variabler til at sætte ting ind i senere
+      const container = document.querySelector("section");
+      const template = document.querySelector("template");
 
       //variabler til at hente json
       const fil = "https://tema7-6f2c.restdb.io/rest/norrebro";
@@ -37,12 +39,19 @@
         vis();
       }
 
-      //function vis() {
-      //console.log(flasker);
-      // flasker.forEach((flaske)=>{
-      // const klon=template.cloneNode(true).content;
-      //}
-      //}
+      function vis() {
+        console.log(flasker);
+        flasker.forEach((flaske) => {
+          const klon = template.cloneNode(true).content;
+          klon.querySelector("img").src =
+            "flasker/" + flaske.billednavn + ".jpg";
+          klon.querySelector("h3").textContent = flaske.navn;
+          klon.querySelector("#brand").textContent = `Fra  ${flaske.brand}`;
+          klon.querySelector("#pris").textContent = `${flaske.pris} KR.`;
+
+          container.appendChild(klon);
+        });
+      }
 
       hentData(fil);
     </script>
