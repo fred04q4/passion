@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
+
+    <style>
+      img {
+        max-width: 100%;
+      }
+    </style>
   </head>
   <body>
     <a href=""></a>
     <section>
       <figure>
-        <img src="" alt="" />
+        <img id="produktimg" src="" alt="" />
       </figure>
       <div>
         <h2></h2>
@@ -23,10 +29,54 @@
           <h4 id="pris"></h4>
         </div>
         <div>
-          <img src="" alt="" />
+          <img id="typeimg" src="" alt="" />
         </div>
         <a href=""></a>
       </div>
     </section>
+
+    <script>
+      //Der søges i windowet, og finder hvad der står i urlen.
+      const urlParams = new URLSearchParams(window.location.search);
+      //Her skal den finde et id.
+      const id = urlParams.get("id");
+      //console.log({ id });
+      //const h2 = document.querySelector("");
+      let flaske; //skal bruges i den asynkrone funktion
+      const fil = `https://tema7-6f2c.restdb.io/rest/norrebro/${id}`; //gå til linket med det specifikke id
+      const key = "61fcf7e53f215f310a37be5d";
+      const options = { headers: { "x-apikey": key } };
+
+      async function hentData() {
+        const resultat = await fetch(fil, options);
+        flaske = await resultat.json();
+        //console.log({ flaske });
+        vis();
+      }
+
+      function vis() {
+        console.log({ flaske });
+        document.querySelector("#produktimg").src =
+          "flasker/" + flaske.billednavn + ".jpg";
+        document.querySelector("h2").textContent = flaske.navn;
+        document.querySelector("#type").textContent = flaske.type;
+        document.querySelector("#brand").textContent = flaske.brand;
+        document.querySelector("p").textContent = flaske.kortbeskrivelse;
+        document.querySelector(
+          "#alkoholprocent"
+        ).textContent = `${flaske.alkohol} alkohol`;
+        document.querySelector("#pris").textContent = `${flaske.pris} DK`;
+
+        if (flaske.type == "Lager") {
+          document.querySelector("#typeimg").src = "kurv.svg";
+        } else if (flaske.type == "IPA") {
+          document.querySelector("#typeimg").src = "ipa.svg";
+        } else {
+          document.querySelector("#typeimg").src = "cheers.svg";
+        }
+      }
+
+      hentData();
+    </script>
   </body>
 </html>

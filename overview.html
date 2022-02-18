@@ -90,7 +90,7 @@
             klon.querySelector("#pris").textContent = `${flaske.pris} KR.`;
 
             klon.querySelector("article").addEventListener("click", () => {
-              location.href = `singleview.html?id=${flaske.id}`;
+              location.href = `singleview.html?id=${flaske._id}`;
             });
 
             container.appendChild(klon);
