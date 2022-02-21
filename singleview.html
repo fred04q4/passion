@@ -39,15 +39,8 @@
 
     /*Puks styling*/
 
-    section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-
-    figure {
-      grid-column: 2/2;
-      grid-row: 1;
+    /* figure {
+      grid-column: 1/2;
     }
 
     div h2 {
@@ -83,7 +76,7 @@
     #Køb_knap {
       grid-column: 2/2;
       grid-row: 7;
-    }
+    } */
 
     @media (min-width: 600px) {
       section {
@@ -135,7 +128,7 @@
   </style>
   <body>
     <main>
-      <a id="tilbage_knap" href=""></a>
+      <button>Tilbage</button>
       <section>
         <figure>
           <img id="produktimg" src="" alt="" />
@@ -152,7 +145,7 @@
           <div>
             <img id="typeimg" src="" alt="" />
           </div>
-          <a id="Køb_knap" href=""></a>
+          <a href="">Læg i kurv</a>
         </div>
       </section>
     </main>
@@ -190,15 +183,22 @@
         document.querySelector("#pris").textContent = `${flaske.pris} DK`;
 
         if (flaske.type == "Lager") {
-          document.querySelector("#typeimg").src = "kurv.svg";
+          document.querySelector("#typeimg").src =
+            "Illustrationer/Love_beer.svg";
         } else if (flaske.type == "IPA") {
-          document.querySelector("#typeimg").src = "ipa.svg";
+          document.querySelector("#typeimg").src =
+            "Illustrationer/IPA_inventor.svg";
         } else {
-          document.querySelector("#typeimg").src = "cheers.svg";
+          document.querySelector("#typeimg").src =
+            "Illustrationer/flaske_til_kopper.svg";
         }
       }
 
       hentData();
+
+      document.querySelector("button").addEventListener("click", () => {
+        history.back();
+      });
     </script>
   </body>
 </html>
