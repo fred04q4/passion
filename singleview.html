@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/kab6ydx.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <title>Nørrebro Øl</title>
@@ -16,15 +24,25 @@
     </style>
   </head>
   <style>
-    a {
+    /*Puks styling*/
+
+    button {
       display: inline-block;
       padding-bottom: 0.1rem;
       position: relative;
       text-decoration: none;
       color: black;
+      border-width: 0;
+      background-color: #fffbf1;
+      margin-left: 0.5rem;
+      margin-right: 45px;
+      margin-top: 40px;
+      font-size: 28px;
+      cursor: pointer;
+      font-family: "Darker Grotesque", sans-serif;
     }
 
-    a::before {
+    button::before {
       content: "";
       position: absolute;
       left: 0;
@@ -35,50 +53,60 @@
       transition: width 0.25s ease-out;
     }
 
-    a:hover::before {
+    button:hover::before {
       width: 100%;
+      cursor: pointer;
     }
 
-    /*Puks styling*/
-
-    /* figure {
-      grid-column: 1/2;
+    #navn {
+      color: #773f28;
+      font-family: chelsea-market-open, sans-serif;
+      font-weight: 400;
+      font-size: 2rem;
+      text-align: center;
     }
 
-    div h2 {
-      grid-column: 2/2;
-      grid-row: 2;
-    }
-
-    #type {
-      grid-column: 2/2;
-      grid-row: 3;
-    }
-
+    #type,
     #brand {
-      grid-column: 2/2;
-      grid-row: 3;
+      color: black;
+      font-family: "Darker Grotesque", sans-serif;
+      font-weight: 400;
+      font-size: 1.8rem;
+      text-align: start;
+      margin: 0.3rem 0 0.3rem 0.5rem;
     }
 
-    #alkoholprocent {
-      grid-column: 2/2;
-      grid-row: 4;
+    p {
+      margin: 0.3rem 0 0.3rem 0.5rem;
     }
 
+    #alkoholprocent,
     #pris {
-      grid-column: 2/2;
-      grid-row: 5;
+      color: black;
+      font-family: "Darker Grotesque", sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      text-align: start;
+      margin: 0.5rem 0 0.5rem 0.5rem;
     }
 
-    #typeimg {
-      grid-column: 2/2;
-      grid-row: 6;
+    #type_div {
+      display: grid;
+      justify-content: center;
     }
 
-    #Køb_knap {
-      grid-column: 2/2;
-      grid-row: 7;
-    } */
+    #koeb_knap {
+      display: block;
+      padding-bottom: 0.1rem;
+      color: black;
+      border-width: 0;
+      background-color: #fffbf1;
+      font-size: 28px;
+      cursor: pointer;
+      text-align: center;
+      font-family: "Darker Grotesque", sans-serif;
+      margin: 1rem 0 1rem 0;
+    }
 
     @media (min-width: 600px) {
       section {
@@ -126,6 +154,34 @@
         grid-column: 3;
         grid-row: 5;
       }
+
+      #koeb_knap {
+        display: inline-block;
+        padding-bottom: 0.1rem;
+        color: black;
+        border-width: 0;
+        background-color: #fffbf1;
+        font-size: 28px;
+        cursor: pointer;
+        text-align: center;
+        font-family: "Darker Grotesque", sans-serif;
+      }
+
+      #koeb_knap::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: #5d340f;
+        transition: width 0.25s ease-out;
+      }
+
+      #koeb_knap:hover::before {
+        width: 100%;
+        cursor: pointer;
+      }
     }
   </style>
   <body>
@@ -136,7 +192,7 @@
           <img id="produktimg" src="" alt="" />
         </figure>
         <div>
-          <h2></h2>
+          <h2 id="navn"></h2>
           <div>
             <h3 id="type"></h3>
             <h3 id="brand"></h3>
@@ -144,10 +200,10 @@
             <h4 id="alkoholprocent"></h4>
             <h4 id="pris"></h4>
           </div>
-          <div>
+          <div id="type_div">
             <img id="typeimg" src="" alt="" />
           </div>
-          <a href="">Læg i kurv</a>
+          <a id="koeb_knap" href="">Læg i kurv</a>
         </div>
       </section>
     </main>
@@ -175,7 +231,7 @@
         console.log({ flaske });
         document.querySelector("#produktimg").src =
           "flasker/" + flaske.billednavn + ".jpg";
-        document.querySelector("h2").textContent = flaske.navn;
+        document.querySelector("#navn").textContent = flaske.navn;
         document.querySelector("#type").textContent = flaske.type;
         document.querySelector("#brand").textContent = flaske.brand;
         document.querySelector("p").textContent = flaske.kortbeskrivelse;
