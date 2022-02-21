@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque&display=swap"
+      rel="stylesheet"
+    />
+    <title>Nørrebro Øl</title>
   </head>
   <style>
     img {
@@ -17,47 +23,206 @@
       gap: 0.2rem;
     }
 
-    #overlay {
+    button {
+      display: inline-block;
+      padding-bottom: 0.1rem;
       position: relative;
-      overflow: hidden;
+      text-decoration: none;
+      color: black;
+      border-width: 0;
+      background-color: #fffbf1;
+      margin-left: 45px;
+      margin-right: 45px;
+      margin-top: 40px;
+      font-size: 28px;
+      cursor: pointer;
+      font-family: "Darker Grotesque", sans-serif;
     }
 
-    #overlay .overlay-content {
-      width: 100%;
-      height: 100%;
-      background-color: #e5aa39;
-      color: #ffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 20px;
-      overflow: hidden;
+    button::before {
+      content: "";
       position: absolute;
-      z-index: 1;
-      transition-duration: 0.5s;
-      top: 0;
-      left: -100%;
-      opacity: 75%;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: #5d340f;
+      transition: width 0.25s ease-out;
+    }
+
+    button:hover::before {
+      width: 100%;
       cursor: pointer;
     }
 
-    #overlay .overlay-content p {
-      display: block;
-      letter-spacing: normal;
-      font-size: 1.8rem;
-      font-weight: bolder;
-      margin: 2rem;
-      letter-spacing: 1px;
-      line-height: 1.75rem;
-      padding-top: 20px;
-      opacity: 100%;
+    .valgt {
+      display: inline-block;
+      padding-bottom: 0.1rem;
+      position: relative;
+      text-decoration: none;
+      color: black;
+      border-width: 0;
+      background-color: #fffbf1;
     }
 
-    #overlay:hover .overlay-content {
-      transform: translateX(100%);
+    .valgt::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #5d340f;
+    }
+
+    .valgt:hover::before {
+      cursor: pointer;
+    }
+
+    .knapper {
+      text-align: center;
+    }
+
+    h5 {
+      text-align: center;
+      font-size: 3rem;
+      font-family: "Darker Grotesque", sans-serif;
+      font-weight: 300;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    p {
+      font-family: "Darker Grotesque", sans-serif;
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+
+    p#brand {
+      margin-bottom: 30px;
+    }
+
+    article {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    html {
+      background-color: #fffbf1;
+    }
+
+    .overlay-content p {
+      font-weight: bold;
+      text-decoration: underline;
+      float: right;
+      cursor: pointer;
+    }
+
+    @media (min-width: 900px) {
+      button {
+        display: inline-block;
+        padding-bottom: 0.1rem;
+        position: relative;
+        text-decoration: none;
+        color: black;
+        border-width: 0;
+        background-color: #fffbf1;
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-top: 40px;
+        font-size: 28px;
+        cursor: pointer;
+        font-family: "Darker Grotesque", sans-serif;
+      }
+
+      main {
+        margin-left: 4rem;
+        margin-right: 4rem;
+      }
+
+      #overlay {
+        position: relative;
+        overflow: hidden;
+      }
+
+      #overlay .overlay-content {
+        width: 100%;
+        height: 100%;
+        background-color: #e5aa39;
+        color: #5d340f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        transition-duration: 0.5s;
+        top: 0;
+        left: -100%;
+        opacity: 75%;
+        cursor: pointer;
+      }
+
+      #overlay .overlay-content p {
+        display: block;
+        letter-spacing: normal;
+        font-size: 1.8rem;
+        font-weight: bolder;
+        margin: 2rem;
+        letter-spacing: 1px;
+        line-height: 1.75rem;
+        padding-top: 20px;
+        opacity: 100%;
+      }
+
+      #overlay:hover .overlay-content {
+        transform: translateX(100%);
+      }
     }
   </style>
   <body>
+    <div class="button">
+      <svg
+        width="48px"
+        height="48px"
+        viewBox="0 0 48 48"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <line x1="0" y1="17" x2="48" y2="17" stroke-width="2" />
+          <line x1="0" y1="31" x2="48" y2="31" stroke-width="2" />
+        </g>
+
+        <g>
+          <line x1="0" y1="24" x2="48" y2="24" stroke-width="2" />
+          <line x1="0" y1="24" x2="48" y2="24" stroke-width="2" />
+        </g>
+      </svg>
+    </div>
+    <header class="menu">
+      <section id="menumobil">
+        <div>
+          <a href="index.html"> <img src="NØ_logo.svg" alt="" /></a>
+        </div>
+        <div></div>
+        <nav>
+          <div id="forside">
+            <a href="index.html"> <p>Forside</p></a>
+          </div>
+
+          <div id="øl">
+            <a href="overview.html"><p>ØL</p></a>
+          </div>
+        </nav>
+        <img src="kurve.svg" alt="" id="kurve" />
+      </section>
+    </header>
+    <h3 id="Noverskirft">Nørrebro Øl</h3>
+    <div id="line1"></div>
+    <div id="line2"></div>
+
     <main>
       <div class="knapper">
         <button data-kategori="alle" class="valgt">Alle</button>
@@ -66,7 +231,7 @@
         <button data-kategori="Porter">Porter</button>
       </div>
       <h5>Viser nu: Alle</h5>
-      <section>
+      <section id="section2">
         <template>
           <article>
             <div id="overlay">
@@ -83,9 +248,29 @@
       </section>
     </main>
 
+    <footer>
+      <section id="topline">
+        <div id="line3"></div>
+        <div id="line4"></div>
+      </section>
+
+      <p id="text1">
+        Guldbergsgade 29N <br />
+        2200 København N <br />
+        Kundeservice og kontakt: <br />
+        hello@norrebrool.dk <br />
+      </p>
+
+      <section id="sosial-icon">
+        <img src="facebook.svg" alt="" />
+        <img src="instagram.svg" alt="" />
+      </section>
+    </footer>
+    <script src="menu.js"></script>
+
     <script>
       //variabler til at sætte ting ind i senere
-      const container = document.querySelector("section");
+      const container = document.querySelector("#section2");
       const template = document.querySelector("template");
       const viserNu = document.querySelector("h5");
       //variabler til filtrering
