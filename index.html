@@ -5,64 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kab6ydx.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
-
- /* Genaralt stylning */
-        *{
-            color: #FFFBF1;
-        }
-        p{
-            color: black;
-        }
-
-        h1,h2,h3{
-            color: black;
-        }
-
-        img{
-            max-width: 100%;
-        }
-
         @media (max-width: 600px) {
  
-      
-        
-        h3{
-           text-align: center;
-        }
-
-        
-        #øl{
-            grid-row: 4;
-        }
-        #forside{
-            grid-row: 3;
-        }
-
-
-        #line1{
-            border-color: #E39725;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-width: 2px;
-            width: 44vh;
-            margin-bottom: 5px;
-            margin-top: 5px;
-        }
-
-        #line2{
-            border-color: #A0684F;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-width: 2px;
-            width: 44vh;
-            
-        } 
         
         #section1{
         text-align: center;
@@ -74,224 +24,26 @@
 
         #section4{
         margin-top: 50px;
+        margin-bottom: -15px;
         text-align: center;
         }
         
         #section5{
-        margin-top: 50px;
+        margin-top: 10px;
         text-align: center;
         }
 
         #section6{
         margin-top: 50px;
+        margin-bottom: 50px;
         text-align: center;
         }
-
-        /* foooter stylning */
-
-        footer{
-            display: grid;
-            grid-template-columns: 10px auto auto auto 1fr 50px;
-            grid-template-rows: 10px 10px auto 300px;
+        #section6 img{
+        max-width: 50%;
         }
-
-        #topline{
-            grid-row: 1/2;
-            margin-bottom: 10px;
         }
-
-        #text1{
-            grid-row: 4;
-            grid-column: 2;
-            height: 200px;
-            margin-right: 10px;
-        }
-
-        #text2{
-            grid-row: 4;
-            grid-column: 3;
-            height: 200px;
-        }
-        #line3{
-            border-color: #E39725;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-width: 2px;
-            width: 44vh;
-            margin-bottom: 5px;
-            margin-top: 5px;
-        }
-
-        #line4{
-            border-color: #A0684F;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-width: 2px;
-            width: 44vh;
-        }
-     
-        
-        /*menu stylning*/
-
-        .menu {
-        opacity: 1;
-        max-width: 100%;
-        max-height: 100%;
-        background: #FFFBF1;
-        transition: 0.2s;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        font-size: 40px;
-        text-align: center;
-        }
-
-        a {
-        color: black;
-        }
-
-        .menu.-open {
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        position: fixed;
-        top: 0;
-        z-index: 100;
-        }
-
-        .menu ul {
-        list-style: none;
-        }
-
-        .menu li {
-        margin: 20px;
-        }
-
-  
-
-        /* knap*/
-
-        .button {
-        position: absolute;
-        top: 20px;
-        left: 300px;
-        box-sizing: border-box;
-        height: 36px;
-        cursor: pointer;
-        z-index: 105;
-        }
-        .button svg {
-        stroke: black;
-        transition: 0.2s;
-        }
-        .button svg g:first-child {
-        opacity: 1;
-        transition: opacity 0s 0.2s;
-        }
-        .button svg g:first-child line {
-        transition: transform 0.2s 0.2s;
-        transform: translateY(0px);
-        }
-        .button svg g:last-child {
-        opacity: 0;
-        transition: opacity 0s 0.2s;
-        }
-        .button svg g:last-child line {
-        transition: transform 0.2s;
-        transform: rotate(0deg);
-        transform-origin: center;
-        }
-        .button.-menu-open svg {
-        stroke: #d9d1cc;
-        position: fixed;
-        }
-        .button.-menu-open svg g:first-child {
-        opacity: 0;
-        }
-        .button.-menu-open svg g:first-child line {
-        transition: transform 0.2s;
-        }
-        .button.-menu-open svg g:first-child line:first-child {
-        transform: translateY(7px);
-        }
-        .button.-menu-open svg g:first-child line:last-child {
-        transform: translateY(-7px);
-        }
-        .button.-menu-open svg g:last-child {
-        opacity: 1;
-        }
-        .button.-menu-open svg g:last-child line {
-        transition: transform 0.2s 0.2s;
-        }
-        .button.-menu-open svg g:last-child line:first-child {
-        transform: rotate(45deg);
-        }
-        .button.-menu-open svg g:last-child line:last-child {
-        transform: rotate(-45deg);
-        }
-
-        }
-
 
 @media (min-width: 600px) {
-            
-        
- /* header stylning */
-
-        #menumobil{
-            margin-left: 100px; 
-            margin-right: 170px; 
-            display: grid;
-            grid-template-columns: 50px auto 300px 50px ;
-            grid-template-rows: auto;
-            margin-bottom: -10px;
-            margin-top: 10px;
-        }
-        #Noverskirft{
-            position: relative;
-            top: -100px;
-            left: 170px;
-       
-        }
-        header img{
-            max-width: 100%;
-        }
-
-        
-        #kurve{
-            position: relative;
-            top: 70px;
-      
-        }
-        nav{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            place-content: center;
-        }
-        
-        #øl{
-            border-color: black;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none; 
-            border-width: 1px;
-            width: 2vh;
-        }
-        #forside{
-            border-color: black;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none; 
-            border-width: 1px;
-            width: 5vh;
-        }
-
 /* main stylning */
        main{
             display: grid;
@@ -302,9 +54,10 @@
         }
 
         #section1{
-        grid-column: 1;
+        grid-column: 1/4;
         grid-row: 1;
-        text-align: center;
+        margin-left: 60px;
+        /* text-align: center; */
         }
 
         #section2{
@@ -318,6 +71,7 @@
         margin-top: 50px;
         grid-row: 2;
         grid-column: 1;
+        margin-left: 60px;
         }
         
         #section5{
@@ -326,6 +80,7 @@
         grid-row: 4;
         grid-column: 1;
         justify-self: center;
+        margin-left: 60px;
         }
         
         #section6{
@@ -337,80 +92,6 @@
         justify-self: center;
         }
 
-        #line1{
-            border-color: #E39725;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-width: 2px;
-            width: 160vh;
-            margin-bottom: 5px;
-            margin-left: 70px;
-        }
-
-        #line2{
-            border-color: #A0684F;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-width: 2px;
-            width: 160vh;
-            margin-left: 70px;
-        }
-        
-        .textmobil{
-            display: none;
-        }
-
-/* foooter stylning */
-
-        footer{
-            margin-left: 60px;
-            margin-right: 60px;
-            display: grid;
-            grid-template-columns: 100px 1fr 1fr 50px;
-            grid-template-rows: 10px 10px auto auto;
-        }
-
-        #topline{
-            grid-row: 1/2;
-            margin-bottom: 10px;
-        }
-
-        #text1{
-            grid-row: 4;
-            grid-column: 2;
-            height: 200px;
-        }
-
-        #text2{
-            grid-row: 4;
-            grid-column: 3;
-            height: 200px;
-        }
-        #line3{
-            border-color: #E39725;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-width: 2px;
-            width: 160vh;
-            margin-bottom: 5px;
-            margin-top: 5px;
-        }
-
-        #line4{
-            border-color: #A0684F;
-            border-style: solid;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            border-width: 2px;
-            width: 160vh;
-        }
      }
     </style>
 </head>
@@ -488,22 +169,17 @@
             <div id="line4"></div>
         </section>
 
-        <p id="text1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, ipsam? Voluptatem eveniet error quidem ullam vel! Natus molestias hic eius aliquam numquam laudantium ullam saepe eligendi? Officiis ad voluptate aliquam!</p>
-        <p id="text2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos qui quisquam voluptatibus minus ducimus dolore aspernatur nam harum in neque, eaque nobis molestiae modi repudiandae asperiores et repellat assumenda laborum!</p>
+        <p id="text1">Guldbergsgade 29N <br>
+            2200 København N <br>
+            Kundeservice og kontakt: <br>
+            hello@norrebrool.dk <br>
+            </p>
 
         <section id="sosial-icon">
-            <img src="" alt="">
-            <img src="" alt="">
+            <img src="facebook.svg" alt="">
+            <img src="instagram.svg" alt="">
         </section>
     </footer>
-    <script>
-        const button = document.querySelector(".button");
-        const menu = document.querySelector(".menu");
-
-        button.addEventListener("click", () => {
-        button.classList.toggle("-menu-open");
-        menu.classList.toggle("-open");
-        });
-    </script>
+<script src="menu.js"></script>
 </body>
 </html>
