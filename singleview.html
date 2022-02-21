@@ -36,10 +36,106 @@
     a:hover::before {
       width: 100%;
     }
+
+    /*Puks styling*/
+
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    figure {
+      grid-column: 2/2;
+      grid-row: 1;
+    }
+
+    div h2 {
+      grid-column: 2/2;
+      grid-row: 2;
+    }
+
+    #type {
+      grid-column: 2/2;
+      grid-row: 3;
+    }
+
+    #brand {
+      grid-column: 2/2;
+      grid-row: 3;
+    }
+
+    #alkoholprocent {
+      grid-column: 2/2;
+      grid-row: 4;
+    }
+
+    #pris {
+      grid-column: 2/2;
+      grid-row: 5;
+    }
+
+    #typeimg {
+      grid-column: 2/2;
+      grid-row: 6;
+    }
+
+    #Køb_knap {
+      grid-column: 2/2;
+      grid-row: 7;
+    }
+
+    @media (min-width: 600px) {
+      section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
+      }
+
+      figure {
+        grid-column: 2/4;
+        grid-row: 5/5;
+      }
+
+      div h2 {
+        grid-column: 3;
+        grid-row: 1;
+      }
+
+      #type {
+        grid-column: 3;
+        grid-row: 2;
+      }
+
+      #brand {
+        grid-column: 3;
+        grid-row: 2;
+      }
+
+      #alkoholprocent {
+        grid-column: 3;
+        grid-row: 3;
+      }
+
+      #pris {
+        grid-column: 3;
+        grid-row: 4;
+      }
+
+      #typeimg {
+        grid-column: 4;
+        grid-row: 3;
+      }
+
+      #Køb_knap {
+        grid-column: 3;
+        grid-row: 5;
+      }
+    }
   </style>
   <body>
     <main>
-      <a href=""></a>
+      <a id="tilbage_knap" href=""></a>
       <section>
         <figure>
           <img id="produktimg" src="" alt="" />
@@ -56,7 +152,7 @@
           <div>
             <img id="typeimg" src="" alt="" />
           </div>
-          <a href=""></a>
+          <a id="Køb_knap" href=""></a>
         </div>
       </section>
     </main>
