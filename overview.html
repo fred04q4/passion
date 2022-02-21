@@ -240,7 +240,7 @@
                 <p>Læs mere</p>
               </div>
             </div>
-            <h3></h3>
+            <h4></h4>
             <p id="pris"></p>
             <p id="brand"></p>
           </article>
@@ -315,7 +315,7 @@
             const klon = template.cloneNode(true).content;
             klon.querySelector("img").src =
               "flasker/" + flaske.billednavn + ".jpg";
-            klon.querySelector("h3").textContent = flaske.navn;
+            klon.querySelector("h4").textContent = flaske.navn;
             klon.querySelector("#brand").textContent = `Fra  ${flaske.brand}`;
             klon.querySelector("#pris").textContent = `${flaske.pris} KR.`;
 
