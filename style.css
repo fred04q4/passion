@@ -319,24 +319,53 @@ footer{
                place-content: center;
            }
            
-           #øl{
-               border-color: black;
-               border-style: solid;
-               border-left: none;
-               border-right: none;
-               border-top: none; 
-               border-width: 1px;
-               width: 2vh;
+           #øl,#forside{
+            max-width: fit-content;
            }
-           #forside{
-               border-color: black;
-               border-style: solid;
-               border-left: none;
-               border-right: none;
-               border-top: none; 
-               border-width: 1px;
-               width: 5vh;
-           }
+
+           #forside p{
+            padding-bottom: 0.1rem;
+            position: relative;
+            text-decoration: none;
+            color: black;
+          }
+      
+          #forside p::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #5d340f;
+            transition: width 0.25s ease-out;
+          }
+          #forside p:hover::before {
+            width: 100%;
+          }
+      
+          #øl p:hover::before {
+            width: 100%;
+          }
+          #øl p{
+            padding-bottom: 0.1rem;
+            position: relative;
+            text-decoration: none;
+            color: black;
+          }
+      
+          #øl p::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #5d340f;
+            transition: width 0.25s ease-out;
+          }
+      
+      
            #line1{
             border-color: #E39725;
             border-style: solid;
