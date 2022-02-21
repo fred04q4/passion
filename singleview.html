@@ -131,12 +131,14 @@
     @media (min-width: 600px) {
       button {
         margin-bottom: 1rem;
+        margin-inline: 5rem;
       }
-      section {
+      #mainsection {
         display: grid;
-        grid-template-columns: minmax(300px, 500px) auto;
-        margin-inline: 1rem;
-        gap: 2rem;
+        grid-template-columns: minmax(300px, 500px) minmax(min-content, 600px);
+        margin-inline: 5rem;
+        gap: 1rem;
+        margin-bottom: 5rem;
       }
 
       figure {
@@ -146,22 +148,25 @@
 
       #info {
         display: grid;
-        grid-template-columns: minmax(200px, 400px) minmax(200px, 400px);
-        grid-template-rows: 100px auto auto;
+        grid-template-columns: minmax(auto, 400px) minmax(200px, 800px);
+        grid-template-rows:minmax(min-content, 200px) auto auto;
       }
 
       #navn {
-        margin: 0 0 0 0;
+       margin-top: -10px;
         text-align: start;
         font-size: 3.5rem;
+        grid-column: 1/5;
+        max-width: fit-content;
       }
 
       #tekst {
         grid-column: 1/2;
+        
       }
 
       #type_div {
-        grid-column: 2/3;
+        grid-column: 2;
       }
 
       #koeb_knap {
@@ -174,6 +179,7 @@
         cursor: pointer;
         text-align: center;
         font-family: "Darker Grotesque", sans-serif;
+        grid-column: 1;
       }
 
       #koeb_knap::before {
@@ -194,9 +200,49 @@
     }
   </style>
   <body>
+    <div class="button">
+      <svg
+        width="48px"
+        height="48px"
+        viewBox="0 0 48 48"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <line x1="0" y1="17" x2="48" y2="17" stroke-width="2" />
+          <line x1="0" y1="31" x2="48" y2="31" stroke-width="2" />
+        </g>
+
+        <g>
+          <line x1="0" y1="24" x2="48" y2="24" stroke-width="2" />
+          <line x1="0" y1="24" x2="48" y2="24" stroke-width="2" />
+        </g>
+      </svg>
+    </div>
+    <header class="menu">
+      <section id="menumobil">
+        <div>
+          <a href="index.html"> <img src="NØ_logo.svg" alt="" /></a>
+        </div>
+        <div></div>
+        <nav>
+          <div id="forside">
+            <a href="index.html"> <p>Forside</p></a>
+          </div>
+
+          <div id="øl">
+            <a href="overview.html"><p>ØL</p></a>
+          </div>
+        </nav>
+        <img src="kurve.svg" alt="" id="kurve" />
+      </section>
+    </header>
+    <h3 id="Noverskirft">Nørrebro Øl</h3>
+    <div id="line1"></div>
+    <div id="line2"></div>
     <main>
       <button>Tilbage</button>
-      <section>
+      <section id="mainsection">
         <figure>
           <img id="produktimg" src="" alt="" />
         </figure>
@@ -205,7 +251,7 @@
           <div id="tekst">
             <h3 id="type"></h3>
             <h3 id="brand"></h3>
-            <p></p>
+            <p id="kortbeskrivelse"></p>
             <h4 id="alkoholprocent"></h4>
             <h4 id="pris"></h4>
           </div>
@@ -216,6 +262,25 @@
         </div>
       </section>
     </main>
+    <footer>
+      <section id="topline">
+        <div id="line3"></div>
+        <div id="line4"></div>
+      </section>
+
+      <p id="text1">
+        Guldbergsgade 29N <br />
+        2200 København N <br />
+        Kundeservice og kontakt: <br />
+        hello@norrebrool.dk <br />
+      </p>
+
+      <section id="sosial-icon">
+        <img src="facebook.svg" alt="" />
+        <img src="instagram.svg" alt="" />
+      </section>
+    </footer>
+    <script src="menu.js"></script>
 
     <script>
       //Der søges i windowet, og finder hvad der står i urlen.
@@ -243,7 +308,7 @@
         document.querySelector("#navn").textContent = flaske.navn;
         document.querySelector("#type").textContent = flaske.type;
         document.querySelector("#brand").textContent = flaske.brand;
-        document.querySelector("p").textContent = flaske.kortbeskrivelse;
+        document.querySelector("#kortbeskrivelse").textContent = flaske.kortbeskrivelse;
         document.querySelector(
           "#alkoholprocent"
         ).textContent = `${flaske.alkohol} alkohol`;
