@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="https://use.typekit.net/kab6ydx.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+    <link
+    href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -38,156 +41,25 @@
     <title>Nørrebro Øl</title>
 
     <style>
-      img {
-        max-width: 100%;
-      }
-    </style>
-  </head>
-  <style>
-    /*Puks styling*/
+      /*Puks styling*/
 
-    button {
-      display: inline-block;
-      padding-bottom: 0.1rem;
-      position: relative;
-      text-decoration: none;
-      color: black;
-      border-width: 0;
-      background-color: #fffbf1;
-      margin-left: 0.5rem;
-      margin-right: 45px;
-      margin-top: 40px;
-      font-size: 28px;
-      cursor: pointer;
-      font-family: "Darker Grotesque", sans-serif;
-    }
-
-    button::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background-color: #5d340f;
-      transition: width 0.25s ease-out;
-    }
-
-    button:hover::before {
-      width: 100%;
-      cursor: pointer;
-    }
-
-    #navn {
-      color: #773f28;
-      font-family: chelsea-market-open, sans-serif;
-      font-weight: 400;
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    #type,
-    #brand {
-      color: black;
-      font-family: "Darker Grotesque", sans-serif;
-      font-weight: 400;
-      font-size: 1.8rem;
-      text-align: start;
-      margin: 0.3rem 0 0.3rem 0.5rem;
-    }
-
-    p {
-      margin: 0.3rem 0 0.3rem 0.5rem;
-    }
-
-    #alkoholprocent,
-    #pris {
-      color: black;
-      font-family: "Darker Grotesque", sans-serif;
-      font-weight: 800;
-      font-size: 1.8rem;
-      text-align: start;
-      margin: 0.5rem 0 0.5rem 0.5rem;
-    }
-
-    #type_div {
-      display: grid;
-      justify-content: center;
-    }
-
-    #koeb_knap {
-      display: block;
-      padding-bottom: 0.1rem;
-      color: black;
-      border-width: 0;
-      background-color: #fffbf1;
-      font-size: 28px;
-      cursor: pointer;
-      text-align: center;
-      font-family: "Darker Grotesque", sans-serif;
-      margin: 1rem 0 1rem 0;
-    }
-
-    @media (min-width: 600px) {
-      section {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
-      }
-
-      figure {
-        grid-column: 2/4;
-        grid-row: 5/5;
-      }
-
-      div h2 {
-        grid-column: 3;
-        grid-row: 1;
-      }
-
-      #type {
-        grid-column: 3;
-        grid-row: 2;
-      }
-
-      #brand {
-        grid-column: 3;
-        grid-row: 2;
-      }
-
-      #alkoholprocent {
-        grid-column: 3;
-        grid-row: 3;
-      }
-
-      #pris {
-        grid-column: 3;
-        grid-row: 4;
-      }
-
-      #typeimg {
-        grid-column: 4;
-        grid-row: 3;
-      }
-
-      #Køb_knap {
-        grid-column: 3;
-        grid-row: 5;
-      }
-
-      #koeb_knap {
+      button {
         display: inline-block;
         padding-bottom: 0.1rem;
+        position: relative;
+        text-decoration: none;
         color: black;
         border-width: 0;
         background-color: #fffbf1;
+        margin-left: 0.5rem;
+        margin-right: 45px;
+        margin-top: 40px;
         font-size: 28px;
         cursor: pointer;
-        text-align: center;
         font-family: "Darker Grotesque", sans-serif;
       }
 
-      #koeb_knap::before {
+      button::before {
         content: "";
         position: absolute;
         left: 0;
@@ -198,25 +70,267 @@
         transition: width 0.25s ease-out;
       }
 
-      #koeb_knap:hover::before {
+      button:hover::before {
         width: 100%;
         cursor: pointer;
       }
-    }
-  </style>
+
+      figure {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+      #produktimg,
+      #bagimg {
+        grid-column: 1/4;
+        grid-row: 1/4;
+      }
+
+      #pil_knap {
+        grid-column: 3/4;
+        grid-row: 2;
+        justify-self: end;
+        padding-top: 4rem;
+        cursor: pointer;
+      }
+      #pil_knap:hover {
+        filter: invert(52%) sepia(79%) saturate(2476%) hue-rotate(15deg)
+          brightness(118%) contrast(119%);
+      }
+
+      #navn {
+        color: #773f28;
+        font-family: chelsea-market-open, sans-serif;
+        font-weight: 400;
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      #type,
+      #brand {
+        color: black;
+        font-family: "Darker Grotesque", sans-serif;
+        font-weight: 400;
+        font-size: 1.8rem;
+        text-align: start;
+        margin: 0.3rem 0 0.3rem 0.5rem;
+      }
+
+      p {
+        margin: 0.3rem 0 0.3rem 0.5rem;
+      }
+
+      #alkoholprocent,
+      #pris {
+        color: black;
+        font-family: "Darker Grotesque", sans-serif;
+        font-weight: 800;
+        font-size: 1.8rem;
+        text-align: start;
+        margin: 0.5rem 0 0.5rem 0.5rem;
+      }
+
+      #type_div {
+        display: grid;
+        justify-content: center;
+      }
+
+      #koeb_knap {
+        display: block;
+        padding-bottom: 0.1rem;
+        color: black;
+        border-width: 0;
+        background-color: #fffbf1;
+        font-size: 28px;
+        cursor: pointer;
+        text-align: center;
+        font-family: "Darker Grotesque", sans-serif;
+        margin: 1rem 0 1rem 0;
+        text-decoration: #773f28 underline;
+      }
+
+      @media (min-width: 700px) {
+        button {
+          margin-bottom: 1rem;
+          margin-inline: 5rem;
+        }
+        #mainsection {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto auto auto;
+          margin-inline: 5rem;
+          gap: 1rem;
+          margin-bottom: 5rem;
+          flex-wrap: revert;
+        }
+        #pil_knap {
+          grid-column: 3/4;
+          grid-row: 1/2;
+          justify-self: end;
+          padding-top: 8rem;
+          cursor: pointer;
+        }
+
+        #info {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 150px auto;
+        }
+
+        #navn {
+          margin: 0 0 0 0;
+          text-align: start;
+          font-size: 3.5rem;
+          grid-column: 1/5;
+        }
+
+        #tekst {
+          grid-column: 1/2;
+        }
+
+        #type_div {
+          grid-column: 1/2;
+        }
+
+        #koeb_knap {
+          display: inline-block;
+          padding-bottom: 0.1rem;
+          color: black;
+          border-width: 0;
+          background-color: #fffbf1;
+          font-size: 28px;
+          text-align: start;
+          cursor: pointer;
+          font-family: "Darker Grotesque", sans-serif;
+          grid-column: 1/2;
+          grid-row: 3/4;
+          margin-left: 0.5rem;
+        }
+      }
+
+      @media (min-width: 1000px) {
+        button {
+          margin-bottom: 1rem;
+          margin-inline: 5rem;
+        }
+        #mainsection {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto auto auto;
+          margin-inline: 5rem;
+          gap: 1rem;
+          margin-bottom: 5rem;
+          flex-wrap: revert;
+        }
+
+        #pil_knap {
+          grid-column: 3/4;
+          grid-row: 2;
+          justify-self: end;
+          padding-top: 4rem;
+          cursor: pointer;
+        }
+
+        #info {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 150px auto;
+        }
+
+        #navn {
+          margin: 0 0 0 0;
+          text-align: start;
+          font-size: 3.5rem;
+          grid-column: 1/5;
+        }
+
+        #tekst {
+          grid-column: 1/2;
+        }
+
+        #type_div {
+          grid-column: 2/3;
+        }
+
+        #koeb_knap {
+          display: inline-block;
+          padding-bottom: 0.1rem;
+          color: black;
+          border-width: 0;
+          background-color: #fffbf1;
+          font-size: 28px;
+          text-align: start;
+          cursor: pointer;
+          font-family: "Darker Grotesque", sans-serif;
+          grid-column: 1/2;
+          grid-row: 3/4;
+          margin-left: 0.5rem;
+        }
+      }
+
+      .hide {
+        display: none;
+      }
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
   <body>
+    <div class="button">
+      <svg
+        width="48px"
+        height="48px"
+        viewBox="0 0 48 48"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <line x1="0" y1="17" x2="48" y2="17" stroke-width="2" />
+          <line x1="0" y1="31" x2="48" y2="31" stroke-width="2" />
+        </g>
+
+        <g>
+          <line x1="0" y1="24" x2="48" y2="24" stroke-width="2" />
+          <line x1="0" y1="24" x2="48" y2="24" stroke-width="2" />
+        </g>
+      </svg>
+    </div>
+    <header class="menu">
+      <section id="menumobil">
+        <div>
+          <a href="index.html"> <img src="NØ_logo.svg" alt="" /></a>
+        </div>
+        <div></div>
+        <nav>
+          <div id="forside">
+            <a href="index.html"> <p>Forside</p></a>
+          </div>
+
+          <div id="øl">
+            <a href="overview.html"><p>ØL</p></a>
+          </div>
+        </nav>
+        <img src="kurve.svg" alt="" id="kurve" />
+      </section>
+    </header>
+    <h3 id="Noverskirft">Nørrebro Øl</h3>
+    <div id="line1"></div>
+    <div id="line2"></div>
     <main>
       <button>Tilbage</button>
-      <section>
+      <section id="mainsection">
         <figure>
           <img id="produktimg" src="" alt="" />
+          <img id="bagimg" class="hide" src="" alt="" />
+          <img id="pil_knap" src="pil.svg" alt="" />
         </figure>
-        <div>
+        <div id="info">
           <h2 id="navn"></h2>
-          <div>
+          <div id="tekst">
             <h3 id="type"></h3>
             <h3 id="brand"></h3>
-            <p></p>
+            <p id="kortbeskrivelse"></p>
             <h4 id="alkoholprocent"></h4>
             <h4 id="pris"></h4>
           </div>
@@ -227,6 +341,25 @@
         </div>
       </section>
     </main>
+    <footer>
+      <section id="topline">
+        <div id="line3"></div>
+        <div id="line4"></div>
+      </section>
+
+      <p id="text1">
+        Guldbergsgade 29N <br />
+        2200 København N <br />
+        Kundeservice og kontakt: <br />
+        hello@norrebrool.dk <br />
+      </p>
+
+      <section id="sosial-icon">
+        <img src="facebook.svg" alt="" />
+        <img src="instagram.svg" alt="" />
+      </section>
+    </footer>
+    <script src="menu.js"></script>
 
     <script>
       //Der søges i windowet, og finder hvad der står i urlen.
@@ -234,8 +367,10 @@
       //Her skal den finde et id.
       const id = urlParams.get("id");
       //console.log({ id });
-      //const h2 = document.querySelector("");
       let flaske; //skal bruges i den asynkrone funktion
+      const image1 = document.querySelector("#produktimg");
+      const image2 = document.querySelector("#bagimg");
+      const pil = document.querySelector("#pil_knap");
       const fil = `https://tema7-6f2c.restdb.io/rest/norrebro/${id}`; //gå til linket med det specifikke id
       const key = "61fcf7e53f215f310a37be5d";
       const options = { headers: { "x-apikey": key } };
@@ -249,16 +384,18 @@
 
       function vis() {
         console.log({ flaske });
-        document.querySelector("#produktimg").src =
-          "flasker/" + flaske.billednavn + ".jpg";
+        image1.src = "flasker/" + flaske.billednavn + ".jpg";
+        image2.src = "flasker/" + flaske.billednavn + "-bagfra.jpg";
         document.querySelector("#navn").textContent = flaske.navn;
         document.querySelector("#type").textContent = flaske.type;
         document.querySelector("#brand").textContent = flaske.brand;
-        document.querySelector("p").textContent = flaske.kortbeskrivelse;
+        document.querySelector("#kortbeskrivelse").textContent =
+          flaske.kortbeskrivelse;
         document.querySelector(
           "#alkoholprocent"
         ).textContent = `${flaske.alkohol} alkohol`;
         document.querySelector("#pris").textContent = `${flaske.pris} DK`;
+        pil.addEventListener("click", change);
 
         if (flaske.type == "Lager") {
           document.querySelector("#typeimg").src =
@@ -270,6 +407,12 @@
           document.querySelector("#typeimg").src =
             "Illustrationer/flaske_til_kopper.svg";
         }
+      }
+
+      function change() {
+        console.log("klik på pil");
+        image1.classList.toggle("hide");
+        image2.classList.toggle("hide");
       }
 
       hentData();
