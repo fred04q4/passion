@@ -46,9 +46,11 @@ img {
   max-width: 100%;
 }
 
-@media (max-width: 600px) {
-  /* header stylning */
-  #forside {
+
+@media (max-width: 700px) {
+
+/* header stylning */
+#forside{
     grid-row: 3;
   }
 
@@ -140,9 +142,11 @@ img {
     gap: 10px;
   }
 
-  /* buger menu stylning*/
+/* buger menu stylning*/
+/* koden er lavet af Staffan fundet på https://codepen.io/staffanmowitz/pen/KoKgmo  */
 
-  .menu {
+    /* stylning af bugermenu */
+ .menu {
     opacity: 1;
     max-width: 100%;
     max-height: 100%;
@@ -174,9 +178,9 @@ img {
 
   .menu li {
     margin: 20px;
-  }
+    }
 
-  /* knap*/
+    /* knap til bugermenu */
 
   .button {
     position: absolute;
@@ -186,8 +190,9 @@ img {
     height: 36px;
     cursor: pointer;
     z-index: 105;
-  }
-  .button svg {
+    }
+     /* kod til svg animation i bugermenu*/
+    .button svg {
     stroke: black;
     transition: 0.2s;
   }
@@ -237,9 +242,11 @@ img {
     transform: rotate(-45deg);
   }
 }
+/*bugermenu slut*/
+
 
 /* webudgave */
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   h2 {
     color: black;
     font-family: "Darker Grotesque", sans-serif;
