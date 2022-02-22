@@ -71,6 +71,29 @@
         cursor: pointer;
       }
 
+      figure {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+      #produktimg,
+      #bagimg {
+        grid-column: 1/4;
+        grid-row: 1/4;
+      }
+
+      #pil_knap {
+        grid-column: 3/4;
+        grid-row: 2;
+        justify-self: end;
+        padding-top: 4rem;
+        cursor: pointer;
+      }
+      #pil_knap:hover {
+        filter: invert(52%) sepia(79%) saturate(2476%) hue-rotate(15deg)
+          brightness(118%) contrast(119%);
+      }
+
       #navn {
         color: #773f28;
         font-family: chelsea-market-open, sans-serif;
@@ -119,16 +142,76 @@
         text-align: center;
         font-family: "Darker Grotesque", sans-serif;
         margin: 1rem 0 1rem 0;
+        text-decoration: #773f28 underline;
       }
 
-      @media (min-width: 600px) {
+      @media (min-width: 700px) {
         button {
           margin-bottom: 1rem;
           margin-inline: 5rem;
         }
         #mainsection {
           display: grid;
-          grid-template-columns: minmax(250px, 500px) auto;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto auto auto;
+          margin-inline: 5rem;
+          gap: 1rem;
+          margin-bottom: 5rem;
+          flex-wrap: revert;
+        }
+        #pil_knap {
+          grid-column: 3/4;
+          grid-row: 1/2;
+          justify-self: end;
+          padding-top: 8rem;
+          cursor: pointer;
+        }
+
+        #info {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 150px auto;
+        }
+
+        #navn {
+          margin: 0 0 0 0;
+          text-align: start;
+          font-size: 3.5rem;
+          grid-column: 1/5;
+        }
+
+        #tekst {
+          grid-column: 1/2;
+        }
+
+        #type_div {
+          grid-column: 1/2;
+        }
+
+        #koeb_knap {
+          display: inline-block;
+          padding-bottom: 0.1rem;
+          color: black;
+          border-width: 0;
+          background-color: #fffbf1;
+          font-size: 28px;
+          text-align: start;
+          cursor: pointer;
+          font-family: "Darker Grotesque", sans-serif;
+          grid-column: 1/2;
+          grid-row: 3/4;
+          margin-left: 0.5rem;
+        }
+      }
+
+      @media (min-width: 1000px) {
+        button {
+          margin-bottom: 1rem;
+          margin-inline: 5rem;
+        }
+        #mainsection {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           grid-template-rows: auto auto auto;
           margin-inline: 5rem;
           gap: 1rem;
@@ -136,17 +219,18 @@
           flex-wrap: revert;
         }
 
-        #produktimg,
-        #pil {
-          grid-column: 1/2;
-          grid-row: 1/3;
-          margin: 0;
+        #pil_knap {
+          grid-column: 3/4;
+          grid-row: 2;
+          justify-self: end;
+          padding-top: 4rem;
+          cursor: pointer;
         }
 
         #info {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-          grid-template-rows: 100px auto;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 150px auto;
         }
 
         #navn {
@@ -171,27 +255,12 @@
           border-width: 0;
           background-color: #fffbf1;
           font-size: 28px;
+          text-align: start;
           cursor: pointer;
-          text-align: center;
           font-family: "Darker Grotesque", sans-serif;
-          grid-column: 2/3;
-          grid-row: 2/3;
-        }
-
-        #koeb_knap::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 0;
-          height: 2px;
-          background-color: #5d340f;
-          transition: width 0.25s ease-out;
-        }
-
-        #koeb_knap:hover::before {
-          width: 100%;
-          cursor: pointer;
+          grid-column: 1/2;
+          grid-row: 3/4;
+          margin-left: 0.5rem;
         }
       }
 
@@ -264,8 +333,8 @@
           <div id="type_div">
             <img id="typeimg" src="" alt="" />
           </div>
+          <a id="koeb_knap" href="">Læg i kurv</a>
         </div>
-        <a id="koeb_knap" href="">Læg i kurv</a>
       </section>
     </main>
     <footer>
@@ -295,6 +364,9 @@
       const id = urlParams.get("id");
       //console.log({ id });
       let flaske; //skal bruges i den asynkrone funktion
+      const image1 = document.querySelector("#produktimg");
+      const image2 = document.querySelector("#bagimg");
+      const pil = document.querySelector("#pil_knap");
       const fil = `https://tema7-6f2c.restdb.io/rest/norrebro/${id}`; //gå til linket med det specifikke id
       const key = "61fcf7e53f215f310a37be5d";
       const options = { headers: { "x-apikey": key } };
@@ -307,9 +379,6 @@
       }
 
       function vis() {
-        const image1 = document.querySelector("#produktimg");
-        const image2 = document.querySelector("#bagimg");
-        const pil = document.querySelector("#pil_knap");
         console.log({ flaske });
         image1.src = "flasker/" + flaske.billednavn + ".jpg";
         image2.src = "flasker/" + flaske.billednavn + "-bagfra.jpg";
@@ -322,7 +391,7 @@
           "#alkoholprocent"
         ).textContent = `${flaske.alkohol} alkohol`;
         document.querySelector("#pris").textContent = `${flaske.pris} DK`;
-        pil.addEventListener("toggle", change);
+        pil.addEventListener("click", change);
 
         if (flaske.type == "Lager") {
           document.querySelector("#typeimg").src =
@@ -337,7 +406,9 @@
       }
 
       function change() {
-        image1.classList.add("hide");
+        console.log("klik på pil");
+        image1.classList.toggle("hide");
+        image2.classList.toggle("hide");
       }
 
       hentData();
