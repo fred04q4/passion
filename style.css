@@ -146,8 +146,10 @@ footer{
     gap: 10px;
 }
 
- /* buger menu stylning*/
+/* buger menu stylning*/
+/* koden er lavet af Staffan fundet på https://codepen.io/staffanmowitz/pen/KoKgmo  */
 
+    /* stylning af bugermenu */
  .menu {
     opacity: 1;
     max-width: 100%;
@@ -182,9 +184,7 @@ footer{
     margin: 20px;
     }
 
-
-
-    /* knap*/
+    /* knap til bugermenu */
 
     .button {
     position: absolute;
@@ -195,6 +195,7 @@ footer{
     cursor: pointer;
     z-index: 105;
     }
+     /* kod til svg animation i bugermenu*/
     .button svg {
     stroke: black;
     transition: 0.2s;
@@ -244,7 +245,7 @@ footer{
     .button.-menu-open svg g:last-child line:last-child {
     transform: rotate(-45deg);
     }
-
+/*bugermenu slut*/
     }
 
 /* webudgave */
