@@ -68,7 +68,7 @@ img{
 }
 
 h3{
-    text-align: center;
+   text-align: center;
 }
 
 
@@ -187,9 +187,9 @@ footer{
     /* knap til bugermenu */
 
     .button {
-    position: absolute;
-    top: 10px;
-    left: 320px;
+    position:absolute;
+    top: 20px;
+    right: 20px;
     box-sizing: border-box;
     height: 36px;
     cursor: pointer;
@@ -219,7 +219,6 @@ footer{
     }
     .button.-menu-open svg {
     stroke: #d9d1cc;
-    position: fixed;
     }
     .button.-menu-open svg g:first-child {
     opacity: 0;
