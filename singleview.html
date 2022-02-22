@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -41,8 +41,7 @@
     <title>Nørrebro Øl</title>
 
     <style>
-      /*Puks styling*/
-
+      /*tilbage knappen*/
       button {
         display: inline-block;
         padding-bottom: 0.1rem;
@@ -58,7 +57,6 @@
         cursor: pointer;
         font-family: "Darker Grotesque", sans-serif;
       }
-
       button::before {
         content: "";
         position: absolute;
@@ -69,23 +67,24 @@
         background-color: #5d340f;
         transition: width 0.25s ease-out;
       }
-
       button:hover::before {
         width: 100%;
         cursor: pointer;
       }
 
+      /*produktbilledet sættes i et grid for at kunne placere pilen*/
       figure {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
       }
+      /*begge billeder skal fylde hele dette grid*/
       #produktimg,
       #bagimg {
         grid-column: 1/4;
         grid-row: 1/4;
       }
-
+      /*Pilen indsættes i det pågældende grid*/
       #pil_knap {
         grid-column: 3/4;
         grid-row: 2;
@@ -98,6 +97,7 @@
           brightness(118%) contrast(119%);
       }
 
+      /*Styling af indhold i singleview*/
       #navn {
         color: #773f28;
         font-family: chelsea-market-open, sans-serif;
@@ -105,7 +105,6 @@
         font-size: 2rem;
         text-align: center;
       }
-
       #type,
       #brand {
         color: black;
@@ -115,11 +114,9 @@
         text-align: start;
         margin: 0.3rem 0 0.3rem 0.5rem;
       }
-
       p {
         margin: 0.3rem 0 0.3rem 0.5rem;
       }
-
       #alkoholprocent,
       #pris {
         color: black;
@@ -130,11 +127,13 @@
         margin: 0.5rem 0 0.5rem 0.5rem;
       }
 
+      /*billedet der skifter alt efter type øl*/
       #type_div {
         display: grid;
         justify-content: center;
       }
 
+      /*Læg i kurv knap*/
       #koeb_knap {
         display: block;
         padding-bottom: 0.1rem;
@@ -149,11 +148,13 @@
         text-decoration: #773f28 underline;
       }
 
+      /*Første query, tablet og op*/
       @media (min-width: 700px) {
         button {
           margin-bottom: 1rem;
           margin-inline: 5rem;
         }
+        /*indholdet sættes i grid*/
         #mainsection {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -163,6 +164,7 @@
           margin-bottom: 5rem;
           flex-wrap: revert;
         }
+        /*pilen på produktbilledet skal have en bestemt position*/
         #pil_knap {
           grid-column: 3/4;
           grid-row: 1/2;
@@ -170,28 +172,25 @@
           padding-top: 8rem;
           cursor: pointer;
         }
-
+        /*teksten laver sit eget grid, hvori vi kan placere elementer*/
         #info {
           display: grid;
           grid-template-columns: 1fr;
-          grid-template-rows: 150px auto;
+          grid-template-rows: 200px auto;
         }
-
+        /*øllens navn placeres i griddet*/
         #navn {
           margin: 0 0 0 0;
           text-align: start;
           font-size: 3.5rem;
-          grid-column: 1/5;
+          grid-column: 1/2;
         }
-
         #tekst {
           grid-column: 1/2;
         }
-
         #type_div {
           grid-column: 1/2;
         }
-
         #koeb_knap {
           display: inline-block;
           padding-bottom: 0.1rem;
@@ -208,11 +207,13 @@
         }
       }
 
+      /*Anden query, for web*/
       @media (min-width: 1000px) {
         button {
           margin-bottom: 1rem;
           margin-inline: 5rem;
         }
+
         #mainsection {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -268,11 +269,9 @@
         }
       }
 
+      /*klasse til at gemme/vise billedet bagfra*/
       .hide {
         display: none;
-      }
-      .show {
-        display: block;
       }
     </style>
   </head>
@@ -362,15 +361,18 @@
     <script src="menu.js"></script>
 
     <script>
+      //Konstanter
       //Der søges i windowet, og finder hvad der står i urlen.
       const urlParams = new URLSearchParams(window.location.search);
       //Her skal den finde et id.
       const id = urlParams.get("id");
       //console.log({ id });
       let flaske; //skal bruges i den asynkrone funktion
+      //konstanter til de to billeder+pil
       const image1 = document.querySelector("#produktimg");
       const image2 = document.querySelector("#bagimg");
       const pil = document.querySelector("#pil_knap");
+      //konstanter til json
       const fil = `https://tema7-6f2c.restdb.io/rest/norrebro/${id}`; //gå til linket med det specifikke id
       const key = "61fcf7e53f215f310a37be5d";
       const options = { headers: { "x-apikey": key } };
@@ -382,10 +384,13 @@
         vis();
       }
 
+      //funktionen der viser det valgte(id)
       function vis() {
         console.log({ flaske });
+        //sæt billederne ind af øllerne. De hedder næsten det samme
         image1.src = "flasker/" + flaske.billednavn + ".jpg";
         image2.src = "flasker/" + flaske.billednavn + "-bagfra.jpg";
+        //sæt resten af data ind fra json
         document.querySelector("#navn").textContent = flaske.navn;
         document.querySelector("#type").textContent = flaske.type;
         document.querySelector("#brand").textContent = flaske.brand;
@@ -395,8 +400,9 @@
           "#alkoholprocent"
         ).textContent = `${flaske.alkohol} alkohol`;
         document.querySelector("#pris").textContent = `${flaske.pris} DK`;
+        //eventlistener på pil knappen, der leder til funktionen: "change"
         pil.addEventListener("click", change);
-
+        //Sørger for, at hvis flasken er én type, vises ét billede og så fremdeles.
         if (flaske.type == "Lager") {
           document.querySelector("#typeimg").src =
             "Illustrationer/Love_beer.svg";
@@ -409,6 +415,7 @@
         }
       }
 
+      //funktionen der skifter billedet når der klikkes på pilen
       function change() {
         console.log("klik på pil");
         image1.classList.toggle("hide");
@@ -417,6 +424,7 @@
 
       hentData();
 
+      //sørger for knap der fører tilbage til "overview" siden.
       document.querySelector("button").addEventListener("click", () => {
         history.back();
       });
